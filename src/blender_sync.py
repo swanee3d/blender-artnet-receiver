@@ -351,6 +351,27 @@ class BlenderSynchroniser:
                 wheel = fixture_type["colorWheel"]
                 return ColorConverter.wheel_to_rgb(wheel, position, True)
             return None
+            
+        elif color_mode == "rgb":
+            red_channel = fixture_type.get("red", None)
+            green_channel = fixture_type.get("green", None)
+            blue_channel = fixture_type.get("blue", None)
+            if (red_channel is None
+                    or green_channel is None
+                    or blue_channel is None):
+                return None
+            red_channel += base_address
+            green_channel += base_address
+            blue_channel += base_address
+            if (red_channel in channels
+                    or green_channel in channels
+                    or blue_channel in channels):
+                universe_len = len(universe)
+                red = universe[red_channel] if (red_channel < universe_len) else 0
+                green = universe[green_channel] if (green_channel < universe_len) else 0
+                blue = universe[blue_channel] if (blue_channel < universe_len) else 0
+                return red, green, blue
+            return None
 
         else:
             return None
