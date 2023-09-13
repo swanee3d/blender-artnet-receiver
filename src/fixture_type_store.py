@@ -16,6 +16,12 @@ class FixtureTypeStore:
 
     # TODO: load these from a public store or provide a UI to edit them
     _fixture_types = {
+        "genericrgb": {
+            "colorMode": "rgb",
+            "red": 1,
+            "green": 2,
+            "blue": 3,
+        },
         "wash": {
             "colorMode": "rgbw",
             "red": 4,
