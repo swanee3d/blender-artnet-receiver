@@ -9,7 +9,7 @@ class FixtureTypeStore:
         for fixture_type in self._fixture_types:
             f_t = self._fixture_types[fixture_type]
             # convert degrees to radians so we don't do this every frame
-           if "panRange" in f_t:
+            if "panRange" in f_t:
                 f_t["panRange"] = math.radians(f_t["panRange"])
             if "tiltRange" in f_t:
                 f_t["tiltRange"] = math.radians(f_t["tiltRange"])
